@@ -1,0 +1,160 @@
+*{
+    box-sizing: border-box;
+}
+
+html{
+    height: 100%;
+    width: 100%;
+}
+
+body{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+#navbar1{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    background-color: rgb(255, 100, 255);
+    height: 5%;
+    width: inherit;
+}
+
+#home{
+    position: relative;
+    top: 5%;
+    left: 0.5%; 
+    height: 85%;
+    width: 2.5%;
+    background-color: rgb(255, 150, 255);
+    border-radius: 5px;
+}
+
+#test{
+    background-image: url(../images/house%20Icon.png);
+    background-repeat: no-repeat; 
+    background-position: center;
+    background-size: contain;
+    height: 100%;
+    width: 100%;
+    /*Changing the white background color of the image*/
+    mix-blend-mode: multiply;
+}
+
+#boardContainer{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    background-color: black;
+    width: 100%;
+    height: 100%;
+}
+
+
+.boardIcon{
+    position: relative;
+    top: 5%;
+    height: 85%;
+    width: 2.5%;
+    background-color: rgb(255, 150, 255);
+    border-radius: 5px;
+}
+
+#navbar{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    background-color: white;
+    height: 10%;
+    width: inherit;
+}
+
+.innhold{
+    height: 100%;
+    width: inherit;
+    background-color: blueviolet;
+    border: 5px solid rgb(250, 50, 75);
+}
+
+.innhold p{
+    text-align: center;
+    font-family: sans-serif;
+}
+
+#createFirstBoardPopUp{
+    position: relative;
+    top: 15%;
+    left: 37.5%;
+    width: 25%;
+    height: 25%;
+    background-color: rgb(75, 0, 225);
+    border-radius: 8px;
+}
+
+.board{
+    display: flex;
+    flex-flow: row nowrap;
+    height: inherit;
+    width: inherit;
+}
+
+.svadainnhold{
+    position: relative;
+    background-color: aqua;
+    border: 5px solid rgb(50, 150, 50);
+    height: inherit;
+    width: inherit;
+}
+
+.svadainnhold p{
+    text-align: center;
+    font-family: sans-serif;
+}
+
+.removeColumn{
+    position: relative;
+    background-image: url(../images/crossIcon.png);
+    background-repeat: no-repeat; 
+    background-position: center;
+    background-size: contain;
+    height: 3%;
+    width: 3%;
+    left: 96%;
+}
+
+.removeColumn:hover{
+    cursor: pointer;
+}
+
+.dragDropTask{
+    position: relative;
+    height: 15%;
+    width: 90%;
+    left: 5%;
+    background-color: indianred;
+    border: 5px solid aqua;
+}
+
+.dragDropTask:hover {
+    cursor: grab;
+}
+
+#createNewTask:hover{
+    cursor: pointer;
+}
+
+.assignPerson{
+    position: absolute;
+    width: 10%;
+    height: 10%;
+    left: 45%;
+    top: 45%;
+}
+
+.assignPerson:hover{
+    cursor: pointer;
+}
+
