@@ -12,71 +12,87 @@ body{
     width: 100%;
     margin: 0;
     overflow: hidden;
+    background-color: rgb(241, 250, 238);
 }
 
 #navbar1{
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-start;
-    background-color: rgb(255, 100, 255);
+    background-color: rgb(29, 53, 87);
     height: 5%;
     width: inherit;
 }
 
 #home{
-    position: relative;
-    top: 5%;
+    position: absolute;
     left: 0.5%; 
-    height: 85%;
+    height: 5%;
     width: 2.5%;
-    background-color: rgb(255, 150, 255);
+    background-color: rgb(69, 123, 157);
     border-radius: 5px;
 }
 
 #test{
-    background-image: url(../images/house%20Icon.png);
+    background-image: url(../images/home_icon.png);
     background-repeat: no-repeat; 
     background-position: center;
     background-size: contain;
     height: 100%;
     width: 100%;
-    /*Changing the white background color of the image*/
-    mix-blend-mode: multiply;
+}
+
+.boardName{
+    position: absolute;
+    left: 3.5%;
+    text-align: center;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    color: antiquewhite;
+}
+
+.boardName:hover {
+    cursor: pointer;
 }
 
 #boardContainer{
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-end;
-    background-color: black;
     width: 100%;
     height: 100%;
 }
-
 
 .boardIcon{
     position: relative;
     top: 5%;
     height: 85%;
     width: 2.5%;
-    background-color: rgb(255, 150, 255);
+    background-color: rgb(69, 123, 157);
+    border: 3px solid rgb(29, 53, 87);
     border-radius: 5px;
+    text-align: center;
+    font-family: sans-serif;
+    color: antiquewhite;
 }
 
 #navbar{
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
-    background-color: white;
-    height: 10%;
+    height: 5%;
     width: inherit;
 }
 
 .innhold{
     height: 100%;
     width: inherit;
-    background-color: blueviolet;
-    border: 5px solid rgb(250, 50, 75);
+    background-color: rgb(168, 218, 220);
+    border: 2px solid rgb(29, 53, 87);
+}
+
+.innhold:hover{
+    cursor: pointer;
 }
 
 .innhold p{
@@ -99,12 +115,13 @@ body{
     flex-flow: row nowrap;
     height: inherit;
     width: inherit;
+    overflow: hidden;
 }
 
 .svadainnhold{
     position: relative;
-    background-color: aqua;
-    border: 5px solid rgb(50, 150, 50);
+    background-color: rgb(168, 218, 220);
+    border: 2px solid rgb(29, 53, 87);
     height: inherit;
     width: inherit;
 }
@@ -122,6 +139,7 @@ body{
     background-size: contain;
     height: 3%;
     width: 3%;
+    top: 0.5%;
     left: 96%;
 }
 
@@ -134,16 +152,13 @@ body{
     height: 15%;
     width: 90%;
     left: 5%;
-    background-color: indianred;
-    border: 5px solid aqua;
+    background-color: rgb(230, 57, 70);
+    border: 3px solid rgb(168, 218, 220);
+    border-radius: 25px;
 }
 
 .dragDropTask:hover {
     cursor: grab;
-}
-
-#createNewTask:hover{
-    cursor: pointer;
 }
 
 .assignPerson{

@@ -31,8 +31,23 @@ function createNewBoard(){
     newBoardIcon.className = "boardIcon";
     newBoardIcon.id = "boardIcon" + iterator;
     newBoardIcon.addEventListener("click", switchBoardClick);
+    newBoardIcon.innerHTML = iterator + 1;
     
     document.getElementById("boardContainer").appendChild(newBoardIcon);
+    
+    
+    var strongTag = document.createElement("STRONG");
+    strongTag.className = "boardName"
+    strongTag.id = "boardName" + iterator;
+    var boardNamePTag = document.createElement("p");
+    var attribute2 = document.createAttribute("contenteditable");
+    attribute2.value = "true";
+    boardNamePTag.setAttributeNode(attribute2);
+    boardNamePTag.innerHTML = prompt("Choose a name for the board");
+    strongTag.appendChild(boardNamePTag);
+    
+    document.getElementById("boardNamesContainer").appendChild(strongTag);
+    displayBoardName(strongTag.id);
     
     iterator++;
 }
@@ -48,11 +63,22 @@ function setActiveBoard(id){
     activeBoardID = id;
 }
 
-function switchBoardClick(event){   
-    setActiveBoard("board" + event.target.id.slice(-1));
+function displayBoardName(id){
+    var allBoardNames = document.getElementsByClassName("boardName");
+
+    for(var i = 0; i < allBoardNames.length; i++){
+        allBoardNames[i].style.display = "none";
+    }
+    
+    document.getElementById(id).style.display = "block";
 }
 
-document.getElementById("test").addEventListener("click", createNewBoardColumn);
+function switchBoardClick(event){   
+    setActiveBoard("board" + event.target.id.slice(-1));
+    displayBoardName("boardName" + event.target.id.slice(-1));
+}
+
+document.getElementById("createNewColumn").addEventListener("click", createNewBoardColumn);
 
 function createNewBoardColumn(){
     var newColumn = document.createElement("div");
