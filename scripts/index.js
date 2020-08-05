@@ -1,24 +1,14 @@
 //Iterator to make sure each of the tasks get a unique ID. 
-var iterator = 0;
+var boardCount = 0;
 
 var activeBoardID;
-
-/*
-document.getElementById("createFirstBoard").addEventListener("click", createFirstBoard);
-
-function createFirstBoard(){
-    document.getElementById("createFirstBoardPopUp").style.display = "none";
-    document.getElementById("mainPanel").style.display = "flex";
-}*/
-
-
 
 document.getElementById("createNewBoard").addEventListener("click", createNewBoard);
 
 function createNewBoard(){
     var newBoard = document.createElement("div");
     newBoard.className = "board";
-    newBoard.id = "board" + iterator;
+    newBoard.id = "board" + boardCount;
     
     var attribute1 = document.createAttribute("ondragover");
     attribute1.value = "preventDefaultBehaviour(event)";
@@ -29,27 +19,32 @@ function createNewBoard(){
     
     var newBoardIcon = document.createElement("div");
     newBoardIcon.className = "boardIcon";
-    newBoardIcon.id = "boardIcon" + iterator;
+    newBoardIcon.id = "boardIcon" + boardCount;
     newBoardIcon.addEventListener("click", switchBoardClick);
-    newBoardIcon.innerHTML = iterator + 1;
     
-    document.getElementById("boardContainer").appendChild(newBoardIcon);
+    var boardIconText = document.createElement("p");
+    boardIconText.id = "boardIconText" + boardCount;
+    boardIconText.innerHTML = boardCount + 1;
+    newBoardIcon.appendChild(boardIconText);
     
+    document.getElementById("boardIconContainer").appendChild(newBoardIcon);
     
     var strongTag = document.createElement("STRONG");
-    strongTag.className = "boardName"
-    strongTag.id = "boardName" + iterator;
     var boardNamePTag = document.createElement("p");
     var attribute2 = document.createAttribute("contenteditable");
+    
+    strongTag.className = "boardName"
+    strongTag.id = "boardName" + boardCount;
     attribute2.value = "true";
     boardNamePTag.setAttributeNode(attribute2);
     boardNamePTag.innerHTML = prompt("Choose a name for the board");
-    strongTag.appendChild(boardNamePTag);
     
+    strongTag.appendChild(boardNamePTag);
     document.getElementById("boardNamesContainer").appendChild(strongTag);
+    
     displayBoardName(strongTag.id);
     
-    iterator++;
+    boardCount++;
 }
 
 function setActiveBoard(id){
@@ -82,8 +77,7 @@ document.getElementById("createNewColumn").addEventListener("click", createNewBo
 
 function createNewBoardColumn(){
     var newColumn = document.createElement("div");
-    newColumn.className = "svadainnhold";
-    newColumn.id = "svadainnhold" + iterator;
+    newColumn.className = "boardColumn";
     
     var attribute1 = document.createAttribute("ondrop");
     attribute1.value = "switchParentOfObject(event)";
@@ -95,27 +89,19 @@ function createNewBoardColumn(){
     newColumn.appendChild(removeColumnButton);
     
     var strongTag = document.createElement("STRONG");
-    var columnName = prompt("What will this column represent?");
     var columnNamePTag = document.createElement("p");
-    
     var attribute2 = document.createAttribute("contenteditable");
+    
     attribute2.value = "true";
     columnNamePTag.setAttributeNode(attribute2);
-    columnNamePTag.innerHTML = columnName;
+    columnNamePTag.innerHTML = prompt("What will this column represent?");
     
     strongTag.appendChild(columnNamePTag);
     newColumn.appendChild(strongTag);
     
     document.getElementById(activeBoardID).appendChild(newColumn);
-    
-    iterator++;
 }
 
-//Adding functionality to the three default columns "remove column buttons" that you are given when creating the board.
-var removeColumnButtons = document.getElementsByClassName("removeColumn");
-for(var i = 0; i < removeColumnButtons.length; i++){
-    removeColumnButtons[i].addEventListener("click", removeColumn);
-}
 
 function removeColumn(event){
     event.target.parentElement.style.display = "none";
@@ -125,11 +111,12 @@ function removeColumn(event){
 document.getElementById("createNewTask").addEventListener("click", createNewTask);
 
 
+var taskCount = 0;
 //Creating a new task as a 'div'. Attaching the right attributes, classname/id, event listeners, and other elements it needs to work as a task.
 function createNewTask(){
     var task = document.createElement("div");
     task.className = "dragDropTask";
-    task.id = "dragDropTask" + iterator;
+    task.id = "dragDropTask" + taskCount;
     
     var attribute1 = document.createAttribute("draggable");
     attribute1.value = "true";
@@ -142,7 +129,7 @@ function createNewTask(){
     
     var assignPersonToTask = document.createElement("button");
     assignPersonToTask.className = "assignPerson";
-    assignPersonToTask.id = "assignPerson" + iterator;
+    assignPersonToTask.id = "assignPerson" + boardCount;
     assignPersonToTask.addEventListener("click", assignTaskToPerson);
     
     task.appendChild(assignPersonToTask);
@@ -154,7 +141,7 @@ function createNewTask(){
         }
     }
     
-    iterator++;
+    taskCount++;
 }
 
 
@@ -173,15 +160,6 @@ function switchParentOfObject(event) {
     }
 }
 
-
-function assignTaskToPerson(event) {
-    var person = prompt("Who is going to work on this task?");
-    var personPTag = document.createElement("p");
-    personPTag.innerHTML = person;
-    document.getElementById(event.target.parentElement.id).appendChild(personPTag);
-}
-
-
 function isMouseOverTask(event){
     if(event.target.className === "dragDropTask" || event.target.className === "assignPerson"){
         return true;
@@ -190,23 +168,12 @@ function isMouseOverTask(event){
     }
 }
 
-
-//-----------------------------------------
-
-/*
-document.getElementById("navbar1").addEventListener("click", changeBoard);
-
-function changeBoard(){
-    if(document.getElementById("mainPanel").style.display == "flex"){
-        
-    document.getElementById("mainPanel").style.display = "none";
-    } else if(document.getElementById("mainPanel").style.display ==  "none"){
-        
-    document.getElementById("mainPanel").style.display = "flex";
-    }
+function assignTaskToPerson(event) {
+    var person = prompt("Who is going to work on this task?");
+    var personPTag = document.createElement("p");
+    personPTag.innerHTML = person;
+    document.getElementById(event.target.parentElement.id).appendChild(personPTag);
 }
-
-*/
 
 
 

@@ -33,7 +33,7 @@ body{
     border-radius: 5px;
 }
 
-#test{
+#homeIcon{
     background-image: url(../images/home_icon.png);
     background-repeat: no-repeat; 
     background-position: center;
@@ -42,9 +42,12 @@ body{
     width: 100%;
 }
 
-.boardName{
+#boardNamesContainer{
     position: absolute;
     left: 3.5%;
+}
+
+.boardName{
     text-align: center;
     font-family: sans-serif;
     text-transform: uppercase;
@@ -55,7 +58,7 @@ body{
     cursor: pointer;
 }
 
-#boardContainer{
+#boardIconContainer{
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-end;
@@ -71,9 +74,17 @@ body{
     background-color: rgb(69, 123, 157);
     border: 3px solid rgb(29, 53, 87);
     border-radius: 5px;
+    overflow: hidden;
+}
+
+.boardIcon p{
     text-align: center;
     font-family: sans-serif;
     color: antiquewhite;
+}
+
+.boardIcon:hover {
+    cursor: pointer;
 }
 
 #navbar{
@@ -89,6 +100,7 @@ body{
     width: inherit;
     background-color: rgb(168, 218, 220);
     border: 2px solid rgb(29, 53, 87);
+    overflow: hidden;
 }
 
 .innhold:hover{
@@ -118,7 +130,7 @@ body{
     overflow: hidden;
 }
 
-.svadainnhold{
+.boardColumn{
     position: relative;
     background-color: rgb(168, 218, 220);
     border: 2px solid rgb(29, 53, 87);
@@ -126,21 +138,25 @@ body{
     width: inherit;
 }
 
-.svadainnhold p{
+.boardColumn p{
+    position: relative;
+    top: -20%;
     text-align: center;
     font-family: sans-serif;
+    text-transform: uppercase;
 }
 
 .removeColumn{
-    position: relative;
-    background-image: url(../images/crossIcon.png);
-    background-repeat: no-repeat; 
-    background-position: center;
-    background-size: contain;
+    position: absolute;
     height: 3%;
     width: 3%;
     top: 0.5%;
     left: 96%;
+    background-image: url(../images/crossIcon.png);
+    background-repeat: no-repeat; 
+    background-position: center;
+    background-size: contain;
+    z-index: 1;
 }
 
 .removeColumn:hover{
