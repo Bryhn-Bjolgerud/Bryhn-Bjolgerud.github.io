@@ -12,7 +12,10 @@ body{
     width: 100%;
     margin: 0;
     overflow: hidden;
-    background-color: rgb(241, 250, 238);
+    background-color: rgb(255, 255, 255);
+    font-size: 1.5vw, 1.5vh;
+    font-family: sans-serif;
+    text-transform: uppercase;
 }
 
 #navbar1{
@@ -49,9 +52,7 @@ body{
 
 .boardName{
     text-align: center;
-    font-family: sans-serif;
-    text-transform: uppercase;
-    color: antiquewhite;
+    color: rgb(255, 255, 255);
 }
 
 .boardName:hover {
@@ -78,16 +79,18 @@ body{
 }
 
 .boardIcon p{
-    text-align: center;
-    font-family: sans-serif;
-    color: antiquewhite;
+    position: relative;
+    top: -20%;
+    left: 30%;
+    color: rgb(255, 255, 255);
 }
 
 .boardIcon:hover {
     cursor: pointer;
+    box-shadow: inset 0 0 6px rgb(29, 53, 87);
 }
 
-#navbar{
+#navbar2{
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
@@ -101,27 +104,16 @@ body{
     background-color: rgb(168, 218, 220);
     border: 2px solid rgb(29, 53, 87);
     overflow: hidden;
+    border-radius: 6px;
 }
 
 .innhold:hover{
-    cursor: pointer;
+    box-shadow: inset 0 0 6px rgb(29, 53, 87);
 }
 
 .innhold p{
     text-align: center;
-    font-family: sans-serif;
 }
-
-#createFirstBoardPopUp{
-    position: relative;
-    top: 15%;
-    left: 37.5%;
-    width: 25%;
-    height: 25%;
-    background-color: rgb(75, 0, 225);
-    border-radius: 8px;
-}
-
 .board{
     display: flex;
     flex-flow: row nowrap;
@@ -136,14 +128,15 @@ body{
     border: 2px solid rgb(29, 53, 87);
     height: inherit;
     width: inherit;
+    border-radius: 6px;
 }
 
 .boardColumn p{
-    position: relative;
-    top: -20%;
     text-align: center;
-    font-family: sans-serif;
-    text-transform: uppercase;
+}
+
+.boardColumn p:hover{
+    cursor: text;
 }
 
 .removeColumn{
@@ -157,6 +150,7 @@ body{
     background-position: center;
     background-size: contain;
     z-index: 1;
+    border-radius: 25px;
 }
 
 .removeColumn:hover{
@@ -168,24 +162,52 @@ body{
     height: 15%;
     width: 90%;
     left: 5%;
-    background-color: rgb(230, 57, 70);
+    background-color: rgb(244, 245, 247);
     border: 3px solid rgb(168, 218, 220);
-    border-radius: 25px;
+    border-radius: 15px;
 }
 
 .dragDropTask:hover {
     cursor: grab;
+    background-color: rgb(235, 236, 242);
 }
 
-.assignPerson{
+select{
     position: absolute;
-    width: 10%;
-    height: 10%;
-    left: 45%;
-    top: 45%;
+    bottom: 0%;
+    right: 0%;
+    width: 15%;
+    height: 15%;
+    border-radius: 5px;
+    z-index: 1;
 }
 
-.assignPerson:hover{
+select:hover{
     cursor: pointer;
 }
 
+.datePicker{
+    position: absolute;
+    bottom: 0%;
+    border-radius: 5px;
+    height: 15%;
+    width: 130px;
+}
+
+.taskInfo{
+    position: absolute;
+    top: 7%;
+    left: 5%;
+    height: 75%;
+    width: 90%;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.taskInfo p {
+    text-align: center;
+}
+
+.taskInfo p:hover {
+    cursor: text;
+}
